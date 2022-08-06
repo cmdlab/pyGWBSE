@@ -1,0 +1,9 @@
+numpy==1.16.0
+FireWorks==1.8.1
+pymatgen==2018.11.30
+atomate==0.8.4
+monty==1.0.3
+sphinx==3.0.1
+sphinx-rtd-theme==0.5.2
+setuptools==57.4.0
+pybtex==0.24.0

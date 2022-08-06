@@ -1,0 +1,29 @@
+PARAMS:
+  kpar: 8                           # KPAR to be used for VASP simulations'
+  ppn: 13                           # NPROCS/KPAR ; NPROCS=number of total processors for VASP simulations  
+  reciprocal_density: 100           # reciprocal density that determines the number of k-points 
+  encutgw: 200                      # ENCUTGW to be used for VASP simulations
+  nbgwfactor: 3                     # NBANDS=nbgwfactor*nocc' ; nocc' is the smallest multiple of 
+                                    # ppn that is larger than number of occupied bands
+  nomegagw: 80                      # NOMEGAGW to be used for VASP simulations
+  convparam: NBANDS                 # NBANDS/ENCUTGW/NOMEGA parameter to run convergence test for  
+  convsteps: 2                      # steps to be used for convergence test
+  conviter: 5                       # maximum number of iteration in convergence test 
+  enwinbse: 5.0                     # energy window in BSE calculations
+
+
+
+STRUCTURE:
+  source: MID                       # MID/POSCAR MID:get structure from MP database, POSCAR: structure from a file            
+  mat_name: NEW_MAT                 # unique identifier in the database when source=POSCAR
+  material_id: mp-661               # material_id of the input structure in MP database
+  
+  
+  
+WFLOW_DESIGN:
+  skip_emc: true                    # set true to skip effective mass calculation                
+  skip_wannier: false               # set true to skip wannier bandstructure interpolation
+  skip_conv: false                  # set true to skip convergence test
+  skip_gw: false                    # set true to skip GW calculation
+  skip_bse: true                    # set true to skip BSE calculation
+  scgw: true                        # set true to perform self-consistent GW instead of G0W0
