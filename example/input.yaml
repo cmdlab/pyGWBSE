@@ -1,11 +1,11 @@
 PARAMS:
   kpar: 4                           # KPAR to be used for VASP simulations'
   ppn: 13                           # NPROCS/KPAR ; NPROCS=number of total processors for VASP simulations  
-  reciprocal_density: 50            # reciprocal density that determines the number of k-points 
-  encutgw: 100                      # ENCUTGW to be used for VASP simulations
-  nbgwfactor: 3                     # NBANDS=nbgwfactor*nocc' ; nocc' is the smallest multiple of 
+  reciprocal_density: 250           # reciprocal density that determines the number of k-points 
+  encutgw: 150                      # ENCUTGW to be used for VASP simulations
+  nbgwfactor: 8                     # NBANDS=nbgwfactor*nocc' ; nocc' is the smallest multiple of 
                                     # ppn that is larger than number of occupied bands
-  nomegagw: 50                      # NOMEGAGW to be used for VASP simulations
+  nomegagw: 80                      # NOMEGAGW to be used for VASP simulations
   convparam: NBANDS                 # NBANDS/ENCUTGW/NOMEGA parameter to run convergence test for  
   convsteps: 3                      # steps to be used for convergence test
   conviter: 5                       # maximum number of iteration in convergence test 

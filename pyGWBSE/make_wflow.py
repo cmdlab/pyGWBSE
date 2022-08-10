@@ -1,11 +1,11 @@
 #This code is to create the workflow based on inputs from input.yaml file 
 
 from fireworks import Firework, Workflow
-from gwbse_wf.wflows import ScfFW, convFW, BseFW, GwFW, EmcFW, WannierCheckFW, WannierFW
-from gwbse_wf.inputset import CreateInputs 
+from pyGWBSE.wflows import ScfFW, convFW, BseFW, GwFW, EmcFW, WannierCheckFW, WannierFW
+from pyGWBSE.inputset import CreateInputs 
 from pymatgen import Structure
 from fireworks import LaunchPad
-from config import VASP_CMD, DB_FILE, SUMO_CMD, WANNIER_CMD
+from pyGWBSE.config import VASP_CMD, DB_FILE, SUMO_CMD, WANNIER_CMD
 from pymatgen.symmetry.analyzer import SpacegroupAnalyzer
 from pymatgen.io.vasp.inputs import Kpoints
 from pymatgen.ext.matproj import MPRester
@@ -169,9 +169,4 @@ def create_wfs(struct, params_dict, vasp_cmd=None, sumo_cmd=None, wannier_cmd=No
     return wf_gwbse
 
 
-struct, input_dict = read_input()
-#input_dict["PARAMS"]["mat_name"]='Si_test'
-wf_gwbse = create_wfs(struct, input_dict)
-lpad = LaunchPad.auto_load() 
-lpad.add_wf(wf_gwbse)
 

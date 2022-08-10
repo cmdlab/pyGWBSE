@@ -11,12 +11,12 @@ from atomate.vasp.firetasks.write_inputs import WriteVaspFromIOSet
 from fireworks import Firework, Tracker
 
 
-from gwbse_wf.inputset import CreateInputs
-from gwbse_wf.out2db import gw2db, bse2db, emc2db, eps2db, Wannier2DB, rpa2db
-from gwbse_wf.run_calc import Run_Vasp, Run_Sumo, Run_Wannier
-from gwbse_wf.tasks import CopyOutputFiles, CheckBeConv, StopIfConverged, PasscalClocsCond, WriteBSEInput, \
-    WriteGWInput, MakeWFilesList, SaveNbandsov, SaveConvParams
-from gwbse_wf.wannier_tasks import WriteWannierInputForDFT, WriteWannierInputForGW, CopyKptsWan2vasp
+from pyGWBSE.inputset import CreateInputs
+from pyGWBSE.out2db import gw2db, bse2db, emc2db, eps2db, Wannier2DB, rpa2db
+from pyGWBSE.run_calc import Run_Vasp, Run_Sumo, Run_Wannier
+from pyGWBSE.tasks import CopyOutputFiles, CheckBeConv, StopIfConverged, PasscalClocsCond, WriteBSEInput, \
+                            WriteGWInput, MakeWFilesList, SaveNbandsov, SaveConvParams
+from pyGWBSE.wannier_tasks import WriteWannierInputForDFT, WriteWannierInputForGW, CopyKptsWan2vasp
 
 
 class ScfFW(Firework):

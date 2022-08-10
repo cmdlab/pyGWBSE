@@ -9,8 +9,8 @@ from fireworks import explicit_serialize, FiretaskBase, FWAction
 from monty.json import jsanitize
 from pymatgen.io.vasp.outputs import Vasprun, Outcar
 
-from gwbse_wf.tasks import read_emcpyout, read_epsilon, get_gap_from_dict, read_vac_level
-from gwbse_wf.wannier_tasks import read_vbm, read_wannier, read_vasp, read_special_kpts
+from pyGWBSE.tasks import read_emcpyout, read_epsilon, get_gap_from_dict, read_vac_level
+from pyGWBSE.wannier_tasks import read_vbm, read_wannier, read_vasp, read_special_kpts
 
 
 @explicit_serialize

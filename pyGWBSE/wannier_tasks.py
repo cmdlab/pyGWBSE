@@ -15,7 +15,7 @@ from pymatgen.io.vasp.inputs import Incar, Potcar, PotcarSingle
 from pymatgen.symmetry.analyzer import SpacegroupAnalyzer
 from pymatgen.symmetry.bandstructure import HighSymmKpath
 
-from gwbse_wf.inputset import CreateInputs
+from pyGWBSE.inputset import CreateInputs
 
 logger = get_logger(__name__)
 

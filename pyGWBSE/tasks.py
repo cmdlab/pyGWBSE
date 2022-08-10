@@ -11,7 +11,7 @@ from pymatgen.io.vasp import Vasprun, Locpot
 from pymatgen.io.vasp.inputs import Incar
 from pymatgen.core import Structure
 
-from gwbse_wf.inputset import CreateInputs
+from pyGWBSE.inputset import CreateInputs
 
 """
 This module defines tasks that acts as a glue between other vasp Firetasks to allow communication
@@ -194,7 +194,7 @@ def read_emcpyout(fname):
             hdir1=lines[9]                                                      
             hdir2=lines[14]                                                     
                                                                                 
-            h_res['emass'+str(nh)+': '+str(hibnd)+', '+hdir1+', '+hdir2]=hmass            
+            h_res['mass'+str(nh)+': '+str(hibnd)+', '+hdir1+', '+hdir2]=hmass            
                                                                                 
         if "m_e:" in content:                                                   
             ne=ne+1                                                             
@@ -205,7 +205,7 @@ def read_emcpyout(fname):
             edir1=lines[9]                                                      
             edir2=lines[14]                                                     
                                                                                 
-            e_res['emass'+str(ne)+': '+str(eibnd)+', '+edir1+', '+edir2]=emass            
+            e_res['mass'+str(ne)+': '+str(eibnd)+', '+edir1+', '+edir2]=emass            
                                                                                 
     return h_res, e_res     
 
