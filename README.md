@@ -44,7 +44,7 @@ To get started using *py*GWBSE, various tutorials and examples have been created
 - `sudo apt-get install manpages-dev`
 
 ## How to cite Hetero2d
-If you use Hetero2d in your research, please consider citing the paper!
+If you use *py*GWBSE in your research, please consider citing the paper!
 
 > Tathagata Biswas, Arunima K. Singh. *pyGWBSE: A high throughput workflow
 package for GW-BSE calculations.* Computational Materials Science, 2022, 207, 111238. [doi:10.1016/j.commatsci.2022.111238](https://doi.org/10.1016/j.commatsci.2022.111238)
