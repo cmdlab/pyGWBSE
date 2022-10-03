@@ -27,7 +27,7 @@ IMPORTANT NOTE: Atomate and FireWorks do not run on Windows OS. You need a unix-
 - ``python -m ipykernel install --user --name pygwbse``
 
 ## Setting up dependancies
-The Hetero2d package dependancies have a lot of documentation to look over. I will highlight the essential documentation to get started as quickly as possible.
+The *py*GWBSE package dependancies have a lot of documentation to look over. I will highlight the essential documentation to get started as quickly as possible.
 1. *atomate* requires the most set up. Mainly, creating a directory scaffold and writing the 5 required files to connect to the database and run jobs. (MongoDB or free Atlas MongoDB is required) 
 2. *pymatgen* has a command line tool installed to set up default directory paths called pmg. There are 2 essential commands you have to run to use Hetero2d on any system. 
 - Reference directory for the VASP POTCARs. You need to have the POTCARs from VASP yourself.
