@@ -3,7 +3,7 @@
 from fireworks import Firework, Workflow
 from pyGWBSE.wflows import ScfFW, convFW, BseFW, GwFW, EmcFW, WannierCheckFW, WannierFW
 from pyGWBSE.inputset import CreateInputs 
-from pymatgen import Structure
+from pymatgen.core import Structure
 from fireworks import LaunchPad
 from pyGWBSE.config import VASP_CMD, DB_FILE, SUMO_CMD, WANNIER_CMD
 from pymatgen.symmetry.analyzer import SpacegroupAnalyzer

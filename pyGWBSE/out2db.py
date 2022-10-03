@@ -19,7 +19,7 @@ class gw2db(FiretaskBase):
     Insert quasi-particle energies into the database for a GW calculation.
     """
     required_params = ["structure", "task_label", "db_file", "mat_name"]
-    optional_params = ["job_tag"]
+    optional_params = ["job_tag", "defuse_unsuccessful"]
 
     def run_task(self, fw_spec):
         """
@@ -72,7 +72,7 @@ class bse2db(FiretaskBase):
     Insert exciton energies, oscillator strength and dielectric function into the database for a BSE calculation.
     """
     required_params = ["structure", "task_label", "db_file", "mat_name"]
-    optional_params = ["job_tag"]
+    optional_params = ["job_tag", "defuse_unsuccessful"]
 
     def run_task(self, fw_spec):
         """
@@ -122,6 +122,7 @@ class rpa2db(FiretaskBase):
     Insert exciton energies, oscillator strength and dielectric function into the database for a BSE calculation.
     """
     required_params = ["structure", "task_label", "db_file", "mat_name"]
+    optional_params = ["defuse_unsuccessful"]
 
     def run_task(self, fw_spec):
         """
@@ -161,6 +162,7 @@ class emc2db(FiretaskBase):
     Insert effective masses for a SUMO-BANDSTATS calculation.
     """
     required_params = ["structure", "db_file", "mat_name"]
+    optional_params = ["defuse_unsuccessful"]
 
     def run_task(self, fw_spec):
         """
@@ -190,6 +192,7 @@ class eps2db(FiretaskBase):
     Insert macroscopic dielectric constants for LEPSILON=TRUE calculation.
     """
     required_params = ["structure", "db_file", "mat_name"]
+    optional_params = ["defuse_unsuccessful"]
 
     def run_task(self, fw_spec):
         """
@@ -250,6 +253,7 @@ class Wannier2DB(FiretaskBase):
     """
 
     required_params = ["structure", "task_label", "db_file", "compare_vasp", "mat_name"]
+    optional_params = ["defuse_unsuccessful"]
 
     def run_task(self, fw_spec):
         """

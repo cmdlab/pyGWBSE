@@ -9,7 +9,7 @@ import os
 import numpy as np
 from atomate.utils.utils import get_logger
 from fireworks import explicit_serialize, FiretaskBase
-from pymatgen import Structure
+from pymatgen.core import Structure
 from pymatgen.io.vasp import Vasprun
 from pymatgen.io.vasp.inputs import Incar, Potcar, PotcarSingle
 from pymatgen.symmetry.analyzer import SpacegroupAnalyzer

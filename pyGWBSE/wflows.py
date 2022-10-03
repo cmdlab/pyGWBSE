@@ -21,7 +21,7 @@ from pyGWBSE.wannier_tasks import WriteWannierInputForDFT, WriteWannierInputForG
 
 class ScfFW(Firework):
     def __init__(self, mat_name=None, structure=None, nbands=None, kpar=None, reciprocal_density=None,
-                 vasp_input_set=None, vasp_input_set_params=None,
+                 vasp_input_set=None, vasp_input_params=None,
                  vasp_cmd="vasp", prev_calc_loc=True, prev_calc_dir=None, db_file=None, wannier_fw=None,
                  vasptodb_kwargs={}, **kwargs):
         """
@@ -34,8 +34,8 @@ class ScfFW(Firework):
         fw_name = "{}-{}".format(mat_name, name)
         t.append(WriteVaspFromIOSet(structure=structure,
                                     vasp_input_set=vasp_input_set,
-                                    vasp_input_set_params=vasp_input_set_params))
-        t.append(Run_Vasp(vasp_cmd=vasp_cmd, auto_npar=">>auto_npar<<"))
+                                    vasp_input_params=vasp_input_params))
+        t.append(Run_Vasp(vasp_cmd=vasp_cmd))
         t.append(eps2db(structure=structure, mat_name=mat_name, db_file=db_file, defuse_unsuccessful=False))
         t.append(rpa2db(structure=structure, mat_name=mat_name, task_label=name, db_file=db_file, defuse_unsuccessful=False))
         t.append(PassCalcLocs(name=name))
@@ -46,7 +46,7 @@ class convFW(Firework):
 
     def __init__(self, mat_name=None, structure=None, tolerence=None, no_conv=None, nbands=None,
                  nbgwfactor=None, encutgw=None, nomegagw=None, convparam=None, convsteps=None, conviter=None,
-                 kpar=None, nbandsgw=None, reciprocal_density=None, vasp_input_set=None, vasp_input_set_params=None,
+                 kpar=None, nbandsgw=None, reciprocal_density=None, vasp_input_set=None, vasp_input_params=None,
                  vasp_cmd="vasp",
                  prev_calc_loc=True, prev_calc_dir=None, db_file=None, vasptodb_kwargs={}, parents=None, **kwargs):
         t = []
@@ -73,14 +73,14 @@ class convFW(Firework):
                                           reciprocal_density=reciprocal_density)
             t.append(WriteVaspFromIOSet(structure=structure,
                                         vasp_input_set=vasp_input_set,
-                                        vasp_input_set_params=vasp_input_set_params))
-            t.append(Run_Vasp(vasp_cmd=vasp_cmd, auto_npar=">>auto_npar<<"))
+                                        vasp_input_params=vasp_input_params))
+            t.append(Run_Vasp(vasp_cmd=vasp_cmd))
             vasp_input_set = CreateInputs(structure,mode='CONV',nbands=nbands*nbgwfactor,encutgw=encutgw,nomegagw=nomegagw,kpar=kpar,reciprocal_density=reciprocal_density,nbandsgw=nbandsgw)
             t.append(WriteVaspFromIOSet(structure=structure,
                                         vasp_input_set=vasp_input_set,
-                                        vasp_input_set_params=vasp_input_set_params))
+                                        vasp_input_params=vasp_input_params))
             if no_conv==False:
-                t.append(Run_Vasp(vasp_cmd=vasp_cmd, auto_npar=">>auto_npar<<"))
+                t.append(Run_Vasp(vasp_cmd=vasp_cmd))
             t.append(SaveConvParams(nbands=nbands*nbgwfactor, encutgw=encutgw, nomegagw=nomegagw))
             t.append(CheckBeConv(niter=niter, tolerence=tolerence, no_conv=no_conv))
             t.append(PasscalClocsCond(name=name))
@@ -94,7 +94,7 @@ class convFW(Firework):
 
 class GwFW(Firework):
     def __init__(self, mat_name=None, structure=None, tolerence=None, no_conv=None, reciprocal_density=None,
-                 vasp_input_set=None, vasp_input_set_params=None, nbandso=None, nbandsv=None, nbandsgw=None,
+                 vasp_input_set=None, vasp_input_params=None, nbandso=None, nbandsv=None, nbandsgw=None,
                  vasp_cmd="vasp", prev_calc_loc=True, prev_calc_dir=None, db_file=None, wannier_fw=None,
                  vasptodb_kwargs={}, job_tag=None, parents=None, **kwargs):
         """
@@ -115,7 +115,7 @@ class GwFW(Firework):
             task_label = 'scGW_Iteration: ' + str(niter)
             if wannier_fw:
                 t.append(WriteWannierInputForGW(structure=structure, reciprocal_density=reciprocal_density,nbandsgw=nbandsgw))
-            t.append(Run_Vasp(vasp_cmd=vasp_cmd, auto_npar=">>auto_npar<<"))
+            t.append(Run_Vasp(vasp_cmd=vasp_cmd))
             t.append(CheckBeConv(niter=niter, tolerence=tolerence, no_conv=no_conv))
             t.append(PasscalClocsCond(name=name))
             t.append(MakeWFilesList())
@@ -130,7 +130,7 @@ class GwFW(Firework):
 
 class BseFW(Firework):
     def __init__(self, mat_name=None, structure=None, reciprocal_density=None, vasp_input_set=None,
-                 vasp_input_set_params=None, enwinbse=None,
+                 vasp_input_params=None, enwinbse=None,
                  vasp_cmd="vasp", prev_calc_loc=True, prev_calc_dir=None, db_file=None, vasptodb_kwargs={},
                  job_tag=None, parents=None, **kwargs):
         """
@@ -147,7 +147,7 @@ class BseFW(Firework):
                 t.append(CopyOutputFiles(additional_files=files2copy, calc_loc=prev_calc_loc, contcar_to_poscar=True))
         t.append(SaveNbandsov(enwinbse=enwinbse))
         t.append(WriteBSEInput(structure=structure, reciprocal_density=reciprocal_density))
-        t.append(Run_Vasp(vasp_cmd=vasp_cmd, auto_npar=">>auto_npar<<"))
+        t.append(Run_Vasp(vasp_cmd=vasp_cmd))
         t.append(bse2db(structure=structure, mat_name=mat_name, task_label=name, job_tag=job_tag, db_file=db_file,
                         defuse_unsuccessful=False))
         tracker = Tracker('vasp.log', nlines=100)
@@ -158,7 +158,7 @@ class BseFW(Firework):
 
 class EmcFW(Firework):
     def __init__(self, mat_name=None, structure=None, nbands=None, kpar=None, reciprocal_density=None, steps=None,
-                 vasp_input_set=None, vasp_input_set_params=None,
+                 vasp_input_set=None, vasp_input_params=None,
                  vasp_cmd="vasp", sumo_cmd='sumo', prev_calc_loc=True, prev_calc_dir=None, db_file=None,
                  vasptodb_kwargs={}, parents=None, **kwargs):
         """
@@ -178,8 +178,8 @@ class EmcFW(Firework):
             raise ValueError("Must specify previous calculation for NonScfFW")
         t.append(WriteVaspFromIOSet(structure=structure,
                                     vasp_input_set=vasp_input_set,
-                                    vasp_input_set_params=vasp_input_set_params))
-        t.append(Run_Vasp(vasp_cmd=vasp_cmd, auto_npar=">>auto_npar<<"))
+                                    vasp_input_params=vasp_input_params))
+        t.append(Run_Vasp(vasp_cmd=vasp_cmd))
         t.append(Run_Sumo(sumo_cmd=sumo_cmd))
         t.append(emc2db(structure=structure, mat_name=mat_name, db_file=db_file, defuse_unsuccessful=False))
         super(EmcFW, self).__init__(t, parents=parents, name=fw_name, **kwargs)
@@ -187,7 +187,7 @@ class EmcFW(Firework):
 
 class WannierCheckFW(Firework):
     def __init__(self, ppn=None, kpar=None, mat_name=None, structure=None, reciprocal_density=None, vasp_input_set=None,
-                 vasp_input_set_params=None,
+                 vasp_input_params=None,
                  vasp_cmd="vasp", wannier_cmd=None, prev_calc_loc=True, prev_calc_dir=None, db_file=None,
                  vasptodb_kwargs={}, parents=None, **kwargs):
         """
@@ -198,15 +198,15 @@ class WannierCheckFW(Firework):
         fw_name = "{}-{}".format(mat_name, name)
         t.append(CopyOutputFiles(calc_loc=prev_calc_loc, contcar_to_poscar=True))
         t.append(WriteWannierInputForDFT(structure=structure, reciprocal_density=reciprocal_density, ppn=ppn, write_hr=False))
-        t.append(Run_Vasp(vasp_cmd=vasp_cmd, auto_npar=">>auto_npar<<"))
+        t.append(Run_Vasp(vasp_cmd=vasp_cmd))
         t.append(WriteWannierInputForDFT(structure=structure, reciprocal_density=reciprocal_density, ppn=ppn, write_hr=True))
         t.append(Run_Wannier(wannier_cmd=wannier_cmd))
         vasp_input_set = CreateInputs(structure, mode='EMC', kpar=kpar, reciprocal_density=reciprocal_density)
         t.append(WriteVaspFromIOSet(structure=structure,
                                     vasp_input_set=vasp_input_set,
-                                    vasp_input_set_params=vasp_input_set_params))
+                                    vasp_input_params=vasp_input_params))
         t.append(CopyKptsWan2vasp())
-        t.append(Run_Vasp(vasp_cmd=vasp_cmd, auto_npar=">>auto_npar<<"))
+        t.append(Run_Vasp(vasp_cmd=vasp_cmd))
         t.append(Wannier2DB(structure=structure, mat_name=mat_name, task_label='CHECK_WANNIER_INTERPOLATION',
                             db_file=db_file, compare_vasp=True, defuse_unsuccessful=False))
         tracker = Tracker('vasp.log', nlines=100)
