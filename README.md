@@ -43,7 +43,7 @@ To get started using *py*GWBSE, various tutorials and examples have been created
 - `sudo apt install build-essential`
 - `sudo apt-get install manpages-dev`
 
-## How to cite Hetero2d
+## How to cite *py*GWBSE
 If you use *py*GWBSE in your research, please consider citing the paper!
 
 > Tathagata Biswas, Arunima K. Singh. *pyGWBSE: A high throughput workflow
