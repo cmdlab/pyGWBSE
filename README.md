@@ -5,7 +5,7 @@
 *py*GWBSE package takes input structure of materials and performs GW-BSE simulations for studying excited state properties. It performs automated convergence calculations required to obtain accurate results from such simulations. *py*GWBSE uses widely used *VASP* software to perform first-principles calculations. It uses *Wannier90* software to obtain quasiparticle (QP) bandstructure (both the one-shot G<sub>0</sub>W<sub>0</sub> and partially self-consistent GW<sub>0</sub> level) using maximally localized wannier functions. *py*GWBSE is also capable of solving BSE, which calculates absorption spectra of materials that incorporates excitonic effects and is accurate enough to comapre with experimental spectra. In addition to performing excited state property simulations, *py*GWBSE also computes several key electronic structure properties of materials such as, orbital resolved  density of states (both at DFT and QP level), real and imaginary part of the dielectric function (with and without incorporating electron-hole interaction), the exciton energies, and their corresponding oscillator strengths, electron/hole effective masses, band-edges, static dielectric tensors etc.
 
 
-## Installation Instructions for Hetero2d
+## Installation Instructions for *py*GWBSE
 IMPORTANT NOTE: Atomate and FireWorks do not run on Windows OS. You need a unix-based OS (Mac or Linux) in order for these packages to run. As such, all setup instructions are given for Unix systems. 
 
 1. Download the repo from the green code icon or via github's commandline tool gh. 
@@ -13,7 +13,7 @@ IMPORTANT NOTE: Atomate and FireWorks do not run on Windows OS. You need a unix-
 - ``git clone https://github.com/cmdlab/pyGWBSE.git``
 2. Install *py*GWBSE in a clean enviromnent using python=3.9. I suggest using Anaconda3 to manange environments. 
 - ``conda create --name pygwbse python=3.9``
-3. Activate the Hetero2d environment and run the line below in the Hetero2d directory to install:
+3. Activate the *py*GWBSE environment and run the line below in the *py*GWBSE directory to install:
 - ``pip install -r requirements.txt``
 4. After installation, *py*GWBSE needs to be added to your python path. This can be done by running the first line below **OR** by adding the 2nd line listed below to your *.bashrc* file. Only necessary if python cannot find the package or the setup.py failed for some reason.
 - ``python setup.py develop`` or ``python setup.py install`` 
@@ -36,7 +36,7 @@ The *py*GWBSE package dependancies have a lot of documentation to look over. I w
   - `pmg config --add PMG_DEFAULT_FUNCTIONAL PBE_54`
 
 ## Examples
-To get started using *py*GWBSE, various tutorials and examples have been created using Jupyter Notebooks. These notebooks demonstrate the basic functionality of Hetero2d to enable users to quickly learn how to use the various modules within this package. These can be found under pyGWBSE/examples.
+To get started using *py*GWBSE, various tutorials and examples have been created using Jupyter Notebooks. These notebooks demonstrate the basic functionality of *py*GWBSE to enable users to quickly learn how to use the various modules within this package. These can be found under pyGWBSE/examples.
 
 ## Issues Installing
 1. If you have a new install you likely do not have the gcc compiler that pymatgen requires. In that case run 
