@@ -2,7 +2,7 @@
 *py*GWBSE is a high-throughtput python workflow package designed to perform automtaed GW-BSE (Bethe-Salpeter Equation) calculation. The *py*GWBSE package leverages well known computational tools: *pymatgen, atomate, fireworks* and first principles software such as: *VASP* and *Wannier90* to perform high-throughput GW-BSE calculations. The workflow creates, computes, analyzes and stores all relevant simulation parameters and results in a queryable MongoDB database that can be accessed through our API. Check out our [documentation](https://cmdlab.github.io/pyGWBSE/) or the [paper](arxiv link needed)!
 
 ## Package Description
-*py*GWBSE package takes input structure of materials and performs GW-BSE simulations for studying excited state properties. It performs automated convergence calculations required to obtain accurate results from such simulations. *py*GWBSE uses widely used *VASP* software to perform first-principles calculations. It uses *Wannier90* software to obtain quasiparticle (QP) bandstructure (both the one-shot G<sub>0</sub>W<sub>0</sub> and partially self-consistent GW<sub>0</sub> level) using maximally localized wannier functions. *py*GWBSE is also capable of solving BSE, which calculates absorption spectra of materials that incorporates excitonic effects and is accurate enough to comapre with experimental spectra. In addition to performing excited state property simulations, *py*GWBSE also computes several key electronic structure properties of materials such as, orbital resolved  density of states (both at DFT and QP level), real and imaginary part of the dielectric function (with and without incorporating electron-hole interaction), the exciton energies, and their corresponding oscillator strengths, electron/hole effective masses, band-edges, static dielectric tensors etc.
+*py*GWBSE package takes input structure of materials and performs GW-BSE simulations for studying excited state properties. It performs automated convergence calculations required to obtain accurate results from such simulations. *py*GWBSE uses widely used *VASP* software to perform first-principles calculations. It uses *Wannier90* software to obtain quasiparticle (QP) bandstructure (both the one-shot G<sub>0</sub>W<sub>0</sub> and partially self-consistent GW<sub>0</sub> level) using maximally localized wannier functions. The electron and hole effective masses are computed using Sumo package. *py*GWBSE is also capable of solving BSE, which calculates absorption spectra of materials that incorporates excitonic effects and is accurate enough to comapre with experimental spectra. In addition to performing excited state property simulations, *py*GWBSE also computes several key electronic structure properties of materials such as, orbital resolved  density of states (both at DFT and QP level), real and imaginary part of the dielectric function (with and without incorporating electron-hole interaction), the exciton energies, and their corresponding oscillator strengths, band-edges, static dielectric tensors etc.
 
 
 ## Installation Instructions for *py*GWBSE
@@ -34,6 +34,9 @@ The *py*GWBSE package dependancies have a lot of documentation to look over. I w
   - `pmg config -p <EXTRACTED_VASP_POTCAR> <MY_PSP>` 
 - Default pseudopotential files from VASP 
   - `pmg config --add PMG_DEFAULT_FUNCTIONAL PBE_54`
+ 3. *VASP*
+ 4. *Wannier90*
+ 5. *Sumo*
 
 ## Examples
 To get started using *py*GWBSE, various tutorials and examples have been created using Jupyter Notebooks. These notebooks demonstrate the basic functionality of *py*GWBSE to enable users to quickly learn how to use the various modules within this package. These can be found under pyGWBSE/examples.
