@@ -1,0 +1,3 @@
+#!/bin/bash
+rm -rf build/ dist/ pyGWBSE.egg-info/ __pycache__/
+rm -rf pyGWBSE/__init__.py pyGWBSE/__pycache__/
