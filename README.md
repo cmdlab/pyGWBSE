@@ -34,7 +34,7 @@ The *py*GWBSE package dependancies have a lot of documentation to look over. I w
   - `pmg config -p <EXTRACTED_VASP_POTCAR> <MY_PSP>` 
 - Default pseudopotential files from VASP 
   - `pmg config --add PMG_DEFAULT_FUNCTIONAL PBE_54`
- 3. *VASP*
+ 3. *VASP* should be installed with Wannier90 support (for details visit [here](https://www.vasp.at/wiki/index.php/LWANNIER90)). We have tested our code with VASP.5.4.4. 
  4. *Wannier90*
  5. *Sumo*
 
