@@ -36,9 +36,9 @@ The *py*GWBSE package dependancies have a lot of documentation to look over. I w
   - `pmg config --add PMG_DEFAULT_FUNCTIONAL PBE_54`
  3. *VASP* should be installed with Wannier90 support (for more information visit [here](https://www.vasp.at/wiki/index.php/LWANNIER90)). We have tested our code with VASP.5.4.4. The VASP execution command should be specified in atomate config file as,
 - `vasp_cmd: "srun --mpi=pmi2 [location of VASP executable] > vasp.log"`   
- 5. *Wannier90* version 3.1.0 should be installed (http://www.wannier.org/). The Wannier90 execution command should be specified in the atomate config file as,
+ 5. *Wannier90* version 3.1.0 should be installed (for more information visit [here](http://www.wannier.org/)). The Wannier90 execution command should be specified in the atomate config file as,
 - wannier_cmd: "[location of Wannier90 executable] > wannier90"
- 7. *Sumo* version 2.2.5 should be installed (https://smtg-ucl.github.io/sumo/index.html). The Sumo execution command should be specified in the atomate config file as, 
+ 7. *Sumo* version 2.2.5 should be installed (for more information visit [here](https://smtg-ucl.github.io/sumo/index.html)). The Sumo execution command should be specified in the atomate config file as, 
 - sumo_cmd: "sumo-bandstats"
 
 ## Examples
