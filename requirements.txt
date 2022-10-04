@@ -21,7 +21,6 @@ flask-paginate==2022.1.8
 fonttools==4.37.4
 future==0.18.2
 gunicorn==20.1.0
-hetero2d==1.0.1
 idna==3.4
 importlib-metadata==5.0.0
 itsdangerous==2.1.2
