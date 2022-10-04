@@ -34,9 +34,12 @@ The *py*GWBSE package dependancies have a lot of documentation to look over. I w
   - `pmg config -p <EXTRACTED_VASP_POTCAR> <MY_PSP>` 
 - Default pseudopotential files from VASP 
   - `pmg config --add PMG_DEFAULT_FUNCTIONAL PBE_54`
- 3. *VASP* should be installed with Wannier90 support (for details visit [here](https://www.vasp.at/wiki/index.php/LWANNIER90)). We have tested our code with VASP.5.4.4. 
- 4. *Wannier90*
- 5. *Sumo*
+ 3. *VASP* should be installed with Wannier90 support (for details visit [here](https://www.vasp.at/wiki/index.php/LWANNIER90)). We have tested our code with VASP.5.4.4. The VASP execution command should be specified in atomate config file as,
+- `vasp_cmd: "srun --mpi=pmi2 [location of VASP executable] > vasp.log"`   
+ 5. *Wannier90* version 3.1.0 should be installed (http://www.wannier.org/). The Wannier90 execution command should be specified in the atomate config file as,
+- wannier_cmd: "[location of Wannier90 executable] > wannier90"
+ 7. *Sumo* version 2.2.5 should be installed (https://smtg-ucl.github.io/sumo/index.html). The Sumo execution command should be specified in the atomate config file as, 
+- sumo_cmd: "sumo-bandstats"
 
 ## Examples
 To get started using *py*GWBSE, various tutorials and examples have been created using Jupyter Notebooks. These notebooks demonstrate the basic functionality of *py*GWBSE to enable users to quickly learn how to use the various modules within this package. These can be found under pyGWBSE/examples.
