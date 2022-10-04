@@ -23,7 +23,8 @@ IMPORTANT NOTE: Atomate and FireWorks do not run on Windows OS. You need a unix-
 - [pymatgen](https://pymatgen.org/installation.html)
 6. To run jupyter notebooks on various resources the ipykernel has to be installed. Sometimes this isn't enough and you need explicitly add the kernel to the list of environments. Via the command line:
 - Activate your environment ``conda activate pygwbse``
-- ``python -m ipykernel install --user --name pygwbse``
+- Install ipykernel ``python -m pip install ipykernel``
+- Add pygwbse kernel ``python -m ipykernel install --user --name pygwbse``
 
 ## Setting up dependancies
 The *py*GWBSE package dependancies have a lot of documentation to look over. I will highlight the essential documentation to get started as quickly as possible.
