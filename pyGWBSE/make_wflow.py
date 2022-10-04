@@ -32,18 +32,19 @@ def num_occ_bands(struct):
 
 
 #Function to read the input.yaml file
-def read_input():
+def read_input(mp_key):
+
     yaml_file = open("input.yaml")
     input_dict = yaml.load(yaml_file, Loader=yaml.FullLoader)
-
     struc_src=input_dict["STRUCTURE"]["source"]
+
     if struc_src=='POSCAR':
         struct=Structure.from_file('POSCAR')
         mat_name=input_dict["STRUCTURE"]["mat_name"]
     elif struc_src=='MID':
         material_id=input_dict["STRUCTURE"]["material_id"]
         mat_name=material_id
-        with MPRester("b62Ts1xuKP9ahZmX") as m:
+        with MPRester(mp_key) as m:
             struct = m.get_structure_by_material_id(material_id,conventional_unit_cell=False)
     else:
         sys.exit('Error: use MID/POSCAR as structure source .... Exiting NOW') 

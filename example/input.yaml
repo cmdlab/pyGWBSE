@@ -34,7 +34,7 @@ PARAMS:
 STRUCTURE:
   
   source: MID               
-  # MID/POSCAR MID:get structure from MP database, POSCAR: structure from a file            
+  # MID/POSCAR MID:get structure from MP database, POSCAR: structure from a file
   
   mat_name: NEW_MAT         
   # unique identifier in the database when source=POSCAR
