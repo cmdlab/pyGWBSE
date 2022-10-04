@@ -1,9 +1,0 @@
-TO INSTALL run the "compile" script
-"input.yaml is a sample input file"
-Run make_wf.py to crate a workflow based on "input.yaml"
-
-
-You will need wannier90, sumo-bandstats, pymatgen, fireworks and atomate to run the code.
-
-
-
