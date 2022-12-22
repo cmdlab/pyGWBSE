@@ -69,7 +69,6 @@ def create_wfs(struct, params_dict, vasp_cmd=None, sumo_cmd=None, wannier_cmd=No
     nbgwfactor=params["nbgwfactor"]
     encutgw=params["encutgw"]
     nomegagw=params["nomegagw"]
-    convparam=params["convparam"]
     convsteps=params["convsteps"]
     conviter=params["conviter"]
     enwinbse=params["enwinbse"]
@@ -90,21 +89,6 @@ def create_wfs(struct, params_dict, vasp_cmd=None, sumo_cmd=None, wannier_cmd=No
     print("You have ",nocc,"occupied bands")
     print("You have ",nkpt,"kpoints")
     print("You have ",mesh,"k-grid")
-    if not(skip_conv):
-        print("Will perform convergence test for: ",convparam)
-        print("Values that will be used for convergence test: ",end='')
-        if convparam=='NOMEGA':
-            initparam=nomegagw
-        if convparam=='NBANDS':
-            initparam=nbgwfactor
-        if convparam=='ENCUTGW':
-            initparam=encutgw
-        for citer in range(conviter):
-            if convparam=='NBANDS':
-                print(nbands*(initparam+citer*convsteps),end=' ')
-            else:
-                print(initparam+citer*convsteps,end=' ')
-    print( )
     print("KPAR=",kpar)
     print("reciprocal_density=",rd)
     if not(skip_bse):
@@ -134,7 +118,7 @@ def create_wfs(struct, params_dict, vasp_cmd=None, sumo_cmd=None, wannier_cmd=No
 
     ifw=ifw+1
     parents = fws[0]
-    fw = convFW(structure=struct, mat_name=mat_name, nbands=nbands, nbgwfactor=nbgwfactor, encutgw=encutgw, nomegagw=nomegagw, convparam=convparam, convsteps=convsteps, conviter=conviter, 
+    fw = convFW(structure=struct, mat_name=mat_name, nbands=nbands, nbgwfactor=nbgwfactor, encutgw=encutgw, nomegagw=nomegagw, convsteps=convsteps, conviter=conviter, 
                     tolerence=0.1, no_conv=skip_conv, vasp_cmd=vasp_cmd,db_file=db_file,parents=parents,kpar=kpar,nbandsgw=nbandsgw,reciprocal_density=rd)
     fws.append(fw)
 
