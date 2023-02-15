@@ -138,10 +138,10 @@ def write_wannier_input(numwan, nbands, labels, kpts, wann_inp, elements,write_h
     else:
         f = open(wann_inp, 'w')
         f.write("num_wann = " + str(numwan) + "\n")
-        if numwan < nbands:
-            f.write("exclude_bands " + str(numwan + 1) + "-" + str(nbands) + "\n")
         if numwan == nbands - 1:
             f.write("exclude_bands " + str(numwan + 1) + "\n")
+        elif numwan < nbands:
+            f.write("exclude_bands " + str(numwan + 1) + "-" + str(nbands) + "\n")
         f.write("bands_plot = true" + "\n")
         f.write("begin kpoint_path" + "\n")
         for i in range(len(labels)):
