@@ -52,5 +52,5 @@ To get started using *py*GWBSE, various tutorials and examples have been created
 ## How to cite *py*GWBSE
 If you use *py*GWBSE in your research, please consider citing the paper!
 
-> Tathagata Biswas, Arunima K. Singh. *pyGWBSE: A high throughput workflow package for GW-BSE calculations*. [https://doi.org/10.1038/s41524-023-00976-y] (https://doi.org/10.1038/s41524-023-00976-y)
+> Tathagata Biswas, Arunima K. Singh. *pyGWBSE: A high throughput workflow package for GW-BSE calculations*. [https://doi.org/10.1038/s41524-023-00976-y](https://doi.org/10.1038/s41524-023-00976-y)
 
